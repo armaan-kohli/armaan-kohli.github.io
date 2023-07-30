@@ -1,13 +1,13 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
-    <script src="https://d3js.org/d3.v5.min.js"></script>
-    <script src="https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>D3 Line Chart</title>
+  <script src="https://d3js.org/d3.v6.min.js"></script>
 </head>
 <body>
-    <div class="center">
-      <svg width="900" height="700"></svg>
-    </div>
+    <svg width="600" height="400" id="line-chart"></svg>
     <script>
         const margin = { top: 30, right: 30, bottom: 50, left: 50 };
         const width = 600 - margin.left - margin.right;
@@ -39,7 +39,7 @@
           .y(d => yScale(d.imdb_score));
 
         // Load data from the CSV file
-        d3.csv("https://raw.githubusercontent.com/c3armaankohli/c3armaankohli.github.io/main/data/titles.csv").then(function(data) {
+        d3.csv("https://raw.githubusercontent.com/armaan-kohli/armaan-kohli.github.io/main/data/titles.csv").then(function(data) {
           data.forEach(function(d) {
             d.release_year = xParseYear(d.release_year);
             d.imdb_score = +d.imdb_score;
